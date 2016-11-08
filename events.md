@@ -1,18 +1,32 @@
-### The observer pattern (and the publish/subscribe pattern)
+## The observer (pub/sub) pattern
 
-The observer pattern is a software design pattern in which objects ('subjects') are able to notify other objects ('observers') of events or changes of state.
+The *observer pattern* is a software design pattern in which objects ('subjects') can notify arbitrary numbers of other objects ('observers') of events or changes of state.
 
-Subjects and observers are also known as publishers and subscribers, so the observer pattern is also known as the publish/subscribe (or pub/sub) pattern.
+Unlike callbacks, where a single 'listener' is called on completion of a specific task, the observer pattern allows for a *one-to-many* relationship between objects - in other words, a subject can notify several observers when its state changes.
 
-Unlike callbacks, where a single 'listener' is called on completion of a specific task, the observer pattern allows for a one-to-many relationship between objects - in other words, a subject can notify several observers when its state changes.
+Subjects and observers are also known as *publishers* and *subscribers*, so the observer pattern is also known as the *publish/subscribe* (or *pub/sub*) pattern.
 
-The pattern is mainly used within event handling systems, where a single event might trigger any number of functions.
+The pattern is mainly used within *event handling* systems, in which a single event might trigger an arbitrary number of responses from 'interested' objects.
 
-The observer pattern offers huge performance gains over alternative implementations - compared with, for example, iterating over every possible dependent object to determine whether it needs to be affected by a state change.
+The observer pattern can offer huge performance gains over alternative implementations - for example, compared with iterating over every possible dependent object to determine whether it needs to be affected by a state change.
 
-The observer pattern is one of the fundamental patterns underlying the Model-View-Controller architecture, which is ubiquitous in everything from game design to web development (one of Angular's key selling points is that it functions as an MVC framework).
+Publish/subscribe also helps *decouple* systems within your software in order to maintain the separation of concerns - or at least it can help to make them *less strongly* coupled.
 
-As a result of the observer pattern's utility and popularity, it has been implemented in several libraries (including the code libraries of Java and Node), and even languages (such as the event keyword in C#).
+The observer pattern is one of the fundamental patterns underlying the *Model-View-Controller* architecture, which is ubiquitous in everything from game design to web development. (For example, one of Angular's key selling points is that it provides an MVC framework for web development.)
+
+As a result of the observer pattern's utility and popularity, it has been implemented in several libraries (including the core libraries of Java and Node), and even coded in as a fundamental feature of some languages (such as the ```event``` keyword in C#).
+
+In Node, the observer pattern is usually implemented using the ```events``` module and the ```EventEmitter``` class.
+
+### Examples
+
+Imagine you're working on a website that allows users to log in to gain access to emails, social media, recent news, and so on.
+
+Each of the separate systems providing those functions is interested in whether the user has logged in, but hardcoding calls to those systems into your user login code will result in tightly coupled systems with overlapping concerns.
+
+The observer pattern prevents your login code from needing to explicitly call each system that has an interest in it. Instead, the login code can simply emit a single login event; any interested systems can then add their own event listeners that can respond to the login event appropriately.
+
+This has the added bonus of making it easier to add additional modules as your software expands. Additional systems can simply add their own listener functions to respond to the login event, without any modifications required to the underlying login code.
 
 ### EventEmitters and event listeners
 
@@ -102,9 +116,8 @@ Whenever you see an object using methods like `on` that means it's using the fun
 Hooray, we can! The syntax is a little funky so we haven't covered it in this README but [this article](https://code.tutsplus.com/tutorials/using-nodes-event-module--net-35941) covers it clearly.
 
 ### Resources
-
-https://www.sitepoint.com/nodejs-events-and-eventemitter/
-https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern
-https://en.wikipedia.org/wiki/Publish–subscribe_pattern
-https://en.wikipedia.org/wiki/Observer_pattern
-http://blog.yld.io/2015/12/15/using-an-event-emitter
+- [Node.js: Events and EventEmitter](https://www.sitepoint.com/nodejs-events-and-eventemitter/)
+- [The observer pattern](https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern)
+- [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern)
+- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
+- [Using an event emitter](http://blog.yld.io/2015/12/15/using-an-event-emitter)
