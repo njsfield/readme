@@ -61,15 +61,15 @@ Let's think back to the Node Girls CMS workshop for a more practical example. Wh
 ```javascript
 var querystring = require('querystring');
 
-var handler = function(req, res) {
+var handler = function(request, response) {
   if(req.url === '/submit-post' && req.method === 'POST') {
     var body = '';
 
-    req.on('data', function(chunk) {
+    request.on('data', function(chunk) { // <-- OMG event listener!
       body += chunk;
     });
 
-    req.on('end', function() {
+    request.on('end', function() { // <-- and again!!
       var blogPost = querystring.parse(body);
       app.emit('newPost', blogPost);
     });
@@ -84,6 +84,8 @@ blogList.on('newPost', function(post) {
 ```
 
 The key point to note here is that `blogList` doesn't know anything about where the event came from. All is it cares about is whether a 'newPost' event has been dispatched. In this example the 'newPost' event is fired as part of the HTTP request handling but it could easily come as part of loading a backup from a file on disk or from elsewhere. We could completely replace how new posts are submitted and the listener would not need to change as long as we continue to provide it with a valid 'post' argument.
+
+As you can see in the example above, the standard `request` and `response` objects we know and love also inherit from `EventEmitter`, because we can see that they have the `on` method!!
 
 Using events means that we can easily extend our code without having to make changes to existing code. Let's say we want to automatically generate a new HTML page for every blog post that gets submitted. All we'd need to do is make sure that the page generation code includes a listener for our 'newPost' event:
 
