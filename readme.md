@@ -119,7 +119,7 @@ Hooray, we can! The syntax is a little funky so we haven't covered it in this RE
 
 ## Streams and the stream module
 
-![Pic demonstrating duplex](./rw.png)
+![Pic demonstrating duplex](./resources/rw.png)
 
 ### What are streams?
 
@@ -161,12 +161,12 @@ Hooray, we can! The syntax is a little funky so we haven't covered it in this RE
   ```
 
 - <b>Duplex</b> (can both read & write).
-  ![Pic demonstrating duplex](./duplex.png)
+  ![Pic demonstrating duplex](./resources/duplex.png)
   An example of a duplex stream would be a socket, which can be used to allow communication between a client and server.
   To create a custom duplex stream, create a class which inherits from the Duplex abstract class, implement the write and read methods. Duplex streams inherit from transform streams...
 
 - <b>Transform</b> (write to, modify, and then read from).
-  ![Pic demonstrating transform](./transform.png)
+  ![Pic demonstrating transform](./resources/transform.png)
   Transform streams allow modification/transformation of the data flowing to and from it:
   ```javascript
   var Transform = require('stream').Transform;  // pulls in transform module
