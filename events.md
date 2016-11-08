@@ -28,7 +28,7 @@ The observer pattern prevents your login code from needing to explicitly call ea
 
 This has the added bonus of making it easier to add additional modules as your software expands. Additional systems can simply add their own listener functions to respond to the login event, without any modifications required to the underlying login code.
 
-### EventEmitters and event listeners
+## EventEmitters and event listeners
 
 Node is more than just a way to use JS outside the browser. It also brings with it an asynchronous style of programming based around events.
 
@@ -46,7 +46,7 @@ Node takes this concept and generalises it so that you can listen for and emit a
 
 The benefit of doing this is that we can write code that is loosely-coupled and asynchronous by default. By communicating primarily with events, our functions and modules don't need to worry about how other parts of code are implemented - they just need to agree on what kind of events are fired and when.
 
-#### Emitting events
+### Emitting events
 
 In node all objects that can emit and listen to events inherit from the `EventEmitter` class. Node provides a few utility functions so that you can merge the relevant methods and properties into objects that you define yourself, but to keep things simple we'll show an example below that just creates a new `EventEmitter` object:
 
@@ -109,13 +109,13 @@ pageGenerator.on('newPost', function(post) {
 });
 ```
 
-#### Inheriting from EventEmitter
+### Inheriting from EventEmitter
 
 Whenever you see an object using methods like `on` that means it's using the functionality provided by `EventEmitter`. In these examples we just created new `EventEmitter` objects to get access to these methods. Of course, in real code you'd probably define your own objects for different bits of functionality. It would be good if we could pull the `EventEmitter`'s functionality into our own objects.
 
 Hooray, we can! The syntax is a little funky so we haven't covered it in this README but [this article](https://code.tutsplus.com/tutorials/using-nodes-event-module--net-35941) covers it clearly.
 
-### Resources
+## Resources
 - [Node.js: Events and EventEmitter](https://www.sitepoint.com/nodejs-events-and-eventemitter/)
 - [The observer pattern](https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern)
 - [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern)
