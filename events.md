@@ -52,9 +52,11 @@ This code will print a plea to shut the door.
 
 By creating an `EventEmitter` object (or we could have created an object that inherits from it), we gain the `on` and `emit` methods that allow us to handle events. `on` takes two arguments: the name of the event to listen out for (as a string) and a function to call whenever the event happens. When we want to fire off an event we just tell the object to `emit` the event.
 
+To link back to the discussion above, we can see that `on` subscribes its object to events and `emit` publishes an event.
+
 In this example the same object emits and handles the event, but this is not a requirement. We can also send data with our event in the form of an argument.
 
-Let's think back to the Node Girls CMS workshop for a more practical example. Whenever a blog post is submitted, we want it to save it to the website's list of posts. In this example, assume that `blogSite` is an object that inherits from `EventEmitter`:
+Let's think back to the Node Girls CMS workshop for a more practical example. Whenever a blog post is submitted, we want it to save it to the website's list of posts. In this example, assume that `blogList` is an object that inherits from `EventEmitter`:
 
 ```javascript
 var querystring = require('querystring');
@@ -95,7 +97,7 @@ pageGenerator.on('newPost', function(post) {
 
 Whenever you see an object using methods like `on` that means it's using the functionality provided by `EventEmitter`. In these examples we just created new `EventEmitter` objects to get access to these methods. Of course, in real code you'd probably define your own objects for different bits of functionality. It would be good if we could pull the `EventEmitter`'s functionality into our own objects.
 
-Hooray, we can! The syntax is a little funky but [this article](https://code.tutsplus.com/tutorials/using-nodes-event-module--net-35941) covers it clearly.
+Hooray, we can! The syntax is a little funky so we haven't covered it in this README but [this article](https://code.tutsplus.com/tutorials/using-nodes-event-module--net-35941) covers it clearly.
 
 ### Resources
 
