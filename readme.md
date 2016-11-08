@@ -70,9 +70,9 @@ By creating an `EventEmitter` object (or we could have created an object that in
 
 To link back to the discussion above, we can see that `on` subscribes its object to events and `emit` publishes an event.
 
-In this example the same object emits and handles the event, but this is not a requirement. We can also send data with our event in the form of an argument.
+In this example the same object emits and handles the event. Events are namespaced to the emitting object. We can also send data with our event in the form of an argument.
 
-Let's think back to the Node Girls CMS workshop for a more practical example. Whenever a blog post is submitted, we want it to save it to the website's list of posts. In this example, assume that `app` and `blogList` are both objects that from `EventEmitter`:
+Let's think back to the Node Girls CMS workshop for a more practical example. Whenever a blog post is submitted, we want it to save it to the website's list of posts. In this example, assume that `app` is an object that inherits from `EventEmitter`:
 
 ```javascript
 var querystring = require('querystring');
@@ -94,7 +94,7 @@ var handler = function(request, response) {
 
 /* TOTALLY SOMEWHERE ELSE IN YOUR CODE */
 
-blogList.on('newPost', function(post) {
+app.on('newPost', function(post) {
   listOfPosts.push(post);
 });
 ```
@@ -106,7 +106,7 @@ As you can see in the example above, the standard `request` and `response` objec
 Using events means that we can easily extend our code without having to make changes to existing code. Let's say we want to automatically generate a new HTML page for every blog post that gets submitted. All we'd need to do is make sure that the page generation code includes a listener for our 'newPost' event:
 
 ```javascript
-pageGenerator.on('newPost', function(post) {
+app.on('newPost', function(post) {
   createNewPageFor(post);
 });
 ```
