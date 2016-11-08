@@ -28,14 +28,6 @@ The observer pattern prevents your login code from needing to explicitly call ea
 
 This has the added bonus of making it easier to add additional modules as your software expands. Additional systems can simply add their own listener functions to respond to the login event, without any modifications required to the underlying login code.
 
-### Resources
-- [Node.js: Events and EventEmitter](https://www.sitepoint.com/nodejs-events-and-eventemitter/)
-- [The observer pattern](https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern)
-- [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern)
-- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
-- [Using an event emitter](http://blog.yld.io/2015/12/15/using-an-event-emitter)
-
-
 ### EventEmitters and event listeners
 
 Node is more than just a way to use JS outside the browser. It also brings with it an asynchronous style of programming based around events.
@@ -120,9 +112,8 @@ Whenever you see an object using methods like `on` that means it's using the fun
 Hooray, we can! The syntax is a little funky but [this article](https://code.tutsplus.com/tutorials/using-nodes-event-module--net-35941) covers it clearly.
 
 ### Resources
-
-https://www.sitepoint.com/nodejs-events-and-eventemitter/
-https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern
-https://en.wikipedia.org/wiki/Publish–subscribe_pattern
-https://en.wikipedia.org/wiki/Observer_pattern
-http://blog.yld.io/2015/12/15/using-an-event-emitter
+- [Node.js: Events and EventEmitter](https://www.sitepoint.com/nodejs-events-and-eventemitter/)
+- [The observer pattern](https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern)
+- [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern)
+- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
+- [Using an event emitter](http://blog.yld.io/2015/12/15/using-an-event-emitter)
