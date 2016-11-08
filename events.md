@@ -56,7 +56,7 @@ To link back to the discussion above, we can see that `on` subscribes its object
 
 In this example the same object emits and handles the event, but this is not a requirement. We can also send data with our event in the form of an argument.
 
-Let's think back to the Node Girls CMS workshop for a more practical example. Whenever a blog post is submitted, we want it to save it to the website's list of posts. In this example, assume that `server` and `blogList` are both objects that from `EventEmitter`:
+Let's think back to the Node Girls CMS workshop for a more practical example. Whenever a blog post is submitted, we want it to save it to the website's list of posts. In this example, assume that `app` and `blogList` are both objects that from `EventEmitter`:
 
 ```javascript
 var querystring = require('querystring');
@@ -71,7 +71,7 @@ var handler = function(req, res) {
 
     req.on('end', function() {
       var blogPost = querystring.parse(body);
-      server.emit('newPost', blogPost);
+      app.emit('newPost', blogPost);
     });
   }
 };
