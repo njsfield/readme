@@ -117,14 +117,6 @@ Whenever you see an object using methods like `on` that means it's using the fun
 
 Hooray, we can! The syntax is a little funky so we haven't covered it in this README but [this article](https://code.tutsplus.com/tutorials/using-nodes-event-module--net-35941) covers it clearly.
 
-## Resources
-- [Node.js: Events and EventEmitter](https://www.sitepoint.com/nodejs-events-and-eventemitter/)
-- [The observer pattern](https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern)
-- [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern)
-- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
-- [Using an event emitter](http://blog.yld.io/2015/12/15/using-an-event-emitter)
-
-
 ## Streams and the stream module
 
 ![Pic demonstrating duplex](./rw.png)
@@ -267,3 +259,10 @@ http.createServer(function(request, response) {
 ## (All)
 
 These concepts can get quite abstract. What are some common examples of EventEmitters and Streams in node we're likely to come across as a group? Can you think of any small program ideas or code samples you can use to demonstrate and talk through these concepts with the group?
+
+## Resources
+- [Node.js: Events and EventEmitter](https://www.sitepoint.com/nodejs-events-and-eventemitter/)
+- [The observer pattern](https://www.packtpub.com/mapt/book/web-development/9781783287314/1/ch01lvl1sec12/the-observer-pattern)
+- [Publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern)
+- [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
+- [Using an event emitter](http://blog.yld.io/2015/12/15/using-an-event-emitter)
